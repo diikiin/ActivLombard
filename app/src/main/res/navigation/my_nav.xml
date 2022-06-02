@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.activgoldlombard.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/myFragment"
+        android:name="com.example.activgoldlombard.MyFragment"
+        android:label="fragment_my"
+        tools:layout="@layout/fragment_my" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.activgoldlombard.HelpFragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.activgoldlombard.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/othersFragment"
+        android:name="com.example.activgoldlombard.OthersFragment"
+        android:label="fragment_others"
+        tools:layout="@layout/fragment_others" >
+        <action
+            android:id="@+id/action_othersFragment_to_reqHouseFragment"
+            app:destination="@id/reqHouseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reqHouseFragment"
+        android:name="com.example.activgoldlombard.reqHouseFragment"
+        android:label="fragment_req_house"
+        tools:layout="@layout/fragment_req_house" />
+</navigation>

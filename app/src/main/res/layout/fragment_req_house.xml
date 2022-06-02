@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".reqHouseFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="139dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:src="@drawable/lev_v_korone_2_cr_650x486_1_1" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="@font/aldrich"
+                    android:text="Activ Gold Lombard"
+                    android:textColor="@color/black"
+                    android:textSize="23sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="5dp"
+                android:text="Ф.И.О" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="50dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:text="Номер телефона" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="50dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:text="Укажите Город" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="50dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="50dp"
+                android:text="Адрес" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="50dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Загрузить фотографии"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="50dp"/>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="220dp"
+                android:layout_marginTop="15dp"
+                android:text="Отправить" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mainFragment"
+        android:title="@string/main_txt"
+        android:icon="@drawable/ic_baseline_home_24"
+        />
+    <item
+        android:id="@+id/myFragment"
+        android:title="@string/my_txt"
+        android:icon="@drawable/ic_baseline_person_24"
+        />
+    <item
+        android:id="@+id/mapFragment"
+        android:title="@string/map_txt"
+        android:icon="@drawable/ic_baseline_location_on_24"
+        />
+    <item
+        android:id="@+id/helpFragment"
+        android:title="@string/help_txt"
+        android:icon="@drawable/ic_baseline_chat_24"
+        />
+    <item
+        android:id="@+id/othersFragment"
+        android:title="@string/others_txt"
+        android:icon="@drawable/ic_baseline_format_list_bulleted_24"
+        />
+</menu>

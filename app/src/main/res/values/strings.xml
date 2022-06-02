@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Activ Gold Lombard</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_txt">Главная</string>
+    <string name="help_txt">Помощь</string>
+    <string name="map_txt">Карта</string>
+    <string name="others_txt">Другие</string>
+    <string name="my_txt">Я</string>
+    <string name="pre">1. Фото удостоворение личности с обоих сторон <br />2. Фото себя с удостовернием личности \n3. Фото ваших ювелирных изделий по отдельности с указанием проб </string>
+
 </resources>
