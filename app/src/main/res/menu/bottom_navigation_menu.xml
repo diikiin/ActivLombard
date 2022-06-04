@@ -6,14 +6,14 @@
         android:icon="@drawable/ic_baseline_home_24"
         />
     <item
-        android:id="@+id/myFragment"
-        android:title="@string/my_txt"
-        android:icon="@drawable/ic_baseline_person_24"
-        />
-    <item
         android:id="@+id/mapFragment"
         android:title="@string/map_txt"
         android:icon="@drawable/ic_baseline_location_on_24"
+        />
+    <item
+        android:id="@+id/myFragment"
+        android:title="@string/my_txt"
+        android:icon="@drawable/ic_baseline_person_24"
         />
     <item
         android:id="@+id/helpFragment"
