@@ -16,5 +16,20 @@
     <string name="specify_city">Укажите Город</string>
     <string name="phone_number">Номер телефона</string>
     <string name="logo">Logo</string>
+    <string name="horizontal_line">Horizontal line</string>
+    <string name="poschitaem">Посчитаем ?</string>
+    <string name="londonfix_5_06_04_2021">LondonFix -5% 06.04.2021</string>
+    <string name="au999_n_23243_t">AU999 \n 23243 T</string>
+    <string name="au750_n17434_t">AU750 \n17434 T</string>
+    <string name="au585_n_13598_t">AU585 \n 13598 T</string>
+    <string name="proba_zolota">Проба золота</string>
+    <string name="au585">AU585</string>
+    <string name="ves_izdelia">Вес изделия, грамм</string>
+    <string name="_0_gr">0.0 гр</string>
+    <string name="srok_zaima">Срок займа, дней</string>
+    <string name="_1_den">1 день</string>
+    <string name="summa_na_ruki">Сумма на руки</string>
+    <string name="summa_k_vozvratu">Сумма к возврату</string>
+    <string name="_0_tg">0 тг</string>
 
 </resources>
