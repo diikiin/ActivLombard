@@ -31,5 +31,29 @@
     <string name="summa_na_ruki">Сумма на руки</string>
     <string name="summa_k_vozvratu">Сумма к возврату</string>
     <string name="_0_tg">0 тг</string>
+    <string-array name="extension_days">
+            <item>1</item>
+            <item>2</item>
+            <item>3</item>
+            <item>4</item>
+            <item>5</item>
+            <item>6</item>
+            <item>7</item>
+            <item>8</item>
+            <item>9</item>
+            <item>10</item>
+    </string-array>
 
+    <string-array name="extension_sample">
+        <item>AU999</item>
+        <item>AU958</item>
+        <item>AU916</item>
+        <item>AU875</item>
+        <item>AU750</item>
+        <item>AU585</item>
+        <item>AU500</item>
+        <item>AU375</item>
+        <item>AU333</item>
+        <item>AU---</item>
+    </string-array>
 </resources>
