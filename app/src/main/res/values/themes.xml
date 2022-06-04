@@ -15,13 +15,13 @@
         <item name="android:textColor">@android:color/black</item>
         <item name="android:windowLightStatusBar">true</item>
 
-        <style name="Theme.ActivGoldLombard.NoActionBar">
-            <item name="windowActionBar">false</item>
-            <item name="windowNoTitle">true</item>
-        </style>
+<!--        <style name="Theme.ActivGoldLombard.NoActionBar">-->
+<!--            <item name="windowActionBar">false</item>-->
+<!--            <item name="windowNoTitle">true</item>-->
+<!--        </style>-->
 
-        <style name="Theme.ActivGoldLombard.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+<!--        <style name="Theme.ActivGoldLombard.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
-        <style name="Theme.ActivGoldLombard.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<!--        <style name="Theme.ActivGoldLombard.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
     </style>
 </resources>
