@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "170214496780",
+    "project_id": "activlombard-72367",
+    "storage_bucket": "activlombard-72367.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170214496780:android:5b783ec844c9a3ccf4ec29",
+        "android_client_info": {
+          "package_name": "com.example.activgoldlombard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "170214496780-kvk6cg9n5r35sver797ipuf73rd6r17o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.activgoldlombard",
+            "certificate_hash": "cab4012b8802346cb43202ed72fdd673c88c035c"
+          }
+        },
+        {
+          "client_id": "170214496780-8g99vip7345m1ig00pdfd2qa2co3p6bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJnuUzFSIMy5WOE_SstUPUenMH_eqLfBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "170214496780-8g99vip7345m1ig00pdfd2qa2co3p6bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

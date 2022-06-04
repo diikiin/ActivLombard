@@ -16,5 +16,6 @@
     <string name="specify_city">Укажите Город</string>
     <string name="phone_number">Номер телефона</string>
     <string name="logo">Logo</string>
+    <string name="upload_photos">Upload photos</string>
 
 </resources>
