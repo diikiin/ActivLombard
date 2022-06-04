@@ -14,7 +14,11 @@
         android:id="@+id/myFragment"
         android:name="com.example.activgoldlombard.MyFragment"
         android:label="fragment_my"
-        tools:layout="@layout/fragment_my" />
+        tools:layout="@layout/fragment_my">
+        <action
+            android:id="@+id/action_myFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/helpFragment"
         android:name="com.example.activgoldlombard.HelpFragment"
@@ -29,7 +33,7 @@
         android:id="@+id/othersFragment"
         android:name="com.example.activgoldlombard.OthersFragment"
         android:label="fragment_others"
-        tools:layout="@layout/fragment_others" >
+        tools:layout="@layout/fragment_others">
         <action
             android:id="@+id/action_othersFragment_to_reqHouseFragment"
             app:destination="@id/reqHouseFragment" />
@@ -39,4 +43,25 @@
         android:name="com.example.activgoldlombard.reqHouseFragment"
         android:label="fragment_req_house"
         tools:layout="@layout/fragment_req_house" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.activgoldlombard.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_myFragment"
+            app:destination="@id/myFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.activgoldlombard.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_myFragment"
+            app:destination="@id/myFragment" />
+    </fragment>
 </navigation>

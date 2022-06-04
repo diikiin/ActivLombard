@@ -16,6 +16,21 @@
     <string name="specify_city">Укажите Город</string>
     <string name="phone_number">Номер телефона</string>
     <string name="logo">Logo</string>
+    <string name="upload_photos">Upload photos</string>
+    <string name="Vvedite_email">Введите свою электронную почту</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="zabyli_parol">Забыли пароль?</string>
+    <string name="voiti">Войти</string>
+    <string name="net_account">Нет аккаунта?</string>
+    <string name="zaregistriruites">Зарегистрируйтесь</string>
+    <string name="est_account">Уже есть аккаунт?</string>
+    <string name="voidite">Войдите</string>
+    <string name="sozdat">Создать</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="username">Username</string>
+    <string name="registrasia">Регистрация</string>
+    <string name="zapolnite_vse_polya">Заполните все поля, чтобы создать аккаунт</string>
     <string name="horizontal_line">Horizontal line</string>
     <string name="poschitaem">Посчитаем ?</string>
     <string name="londonfix_5_06_04_2021">LondonFix -5% 06.04.2021</string>
@@ -32,16 +47,16 @@
     <string name="summa_k_vozvratu">Сумма к возврату</string>
     <string name="_0_tg">0 тг</string>
     <string-array name="extension_days">
-            <item>1</item>
-            <item>2</item>
-            <item>3</item>
-            <item>4</item>
-            <item>5</item>
-            <item>6</item>
-            <item>7</item>
-            <item>8</item>
-            <item>9</item>
-            <item>10</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 
     <string-array name="extension_sample">
