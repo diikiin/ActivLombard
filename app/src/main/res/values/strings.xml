@@ -17,5 +17,19 @@
     <string name="phone_number">Номер телефона</string>
     <string name="logo">Logo</string>
     <string name="upload_photos">Upload photos</string>
+    <string name="Vvedite_email">Введите свою электронную почту</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="zabyli_parol">Забыли пароль?</string>
+    <string name="voiti">Войти</string>
+    <string name="net_account">Нет аккаунта?</string>
+    <string name="zaregistriruites">Зарегистрируйтесь</string>
+    <string name="est_account">Уже есть аккаунт?</string>
+    <string name="voidite">Войдите</string>
+    <string name="sozdat">Создать</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="username">Username</string>
+    <string name="registrasia">Регистрация</string>
+    <string name="zapolnite_vse_polya">Заполните все поля, чтобы создать аккаунт</string>
 
 </resources>
