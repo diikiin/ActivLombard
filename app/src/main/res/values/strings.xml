@@ -31,5 +31,44 @@
     <string name="username">Username</string>
     <string name="registrasia">Регистрация</string>
     <string name="zapolnite_vse_polya">Заполните все поля, чтобы создать аккаунт</string>
+    <string name="horizontal_line">Horizontal line</string>
+    <string name="poschitaem">Посчитаем ?</string>
+    <string name="londonfix_5_06_04_2021">LondonFix -5% 06.04.2021</string>
+    <string name="au999_n_23243_t">AU999 \n 23243 T</string>
+    <string name="au750_n17434_t">AU750 \n17434 T</string>
+    <string name="au585_n_13598_t">AU585 \n 13598 T</string>
+    <string name="proba_zolota">Проба золота</string>
+    <string name="au585">AU585</string>
+    <string name="ves_izdelia">Вес изделия, грамм</string>
+    <string name="_0_gr">0.0 гр</string>
+    <string name="srok_zaima">Срок займа, дней</string>
+    <string name="_1_den">1 день</string>
+    <string name="summa_na_ruki">Сумма на руки</string>
+    <string name="summa_k_vozvratu">Сумма к возврату</string>
+    <string name="_0_tg">0 тг</string>
+    <string-array name="extension_days">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
 
+    <string-array name="extension_sample">
+        <item>AU999</item>
+        <item>AU958</item>
+        <item>AU916</item>
+        <item>AU875</item>
+        <item>AU750</item>
+        <item>AU585</item>
+        <item>AU500</item>
+        <item>AU375</item>
+        <item>AU333</item>
+        <item>AU---</item>
+    </string-array>
 </resources>
