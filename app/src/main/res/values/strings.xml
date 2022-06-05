@@ -46,6 +46,22 @@
     <string name="summa_na_ruki">Сумма на руки</string>
     <string name="summa_k_vozvratu">Сумма к возврату</string>
     <string name="_0_tg">0 тг</string>
+    <string name="moi_zaimy">Мои Займы</string>
+    <string name="zalogovyi_bilet">Залоговый билет №</string>
+    <string name="garant_srok">Гарантированный срок ожидания:</string>
+    <string name="ostatok_summy">Остаток суммы займа:</string>
+    <string name="tenge">Tenge</string>
+    <string name="procenty">Проценты к оплате:</string>
+    <string name="oplachivaiy">Оплачиваю за продление</string>
+    <string name="oplatit">Оплатить</string>
+    <string name="_0">0</string>
+    <string name="epochta">Электронная почта</string>
+    <string name="parol">Пароль</string>
+    <string name="uname">Имя пользователя</string>
+    <string name="pod_parol">Подтвердите пароль</string>
+    <string name="sign_out">Sign out</string>
+    <string name="reset_parol">Поменять пароль</string>
+    <string name="vspomnili_parol">Вспомнили пароль?</string>
     <string-array name="extension_days">
         <item>1</item>
         <item>2</item>
