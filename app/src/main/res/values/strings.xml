@@ -62,6 +62,15 @@
     <string name="sign_out">Sign out</string>
     <string name="reset_parol">Поменять пароль</string>
     <string name="vspomnili_parol">Вспомнили пароль?</string>
+    <string name="oformlenie_zaima">Попробуйте заказать услугу оформления займа на дом</string>
+    <string name="uslovia_lombarda">Ознакомится с условиями ломбарда</string>
+    <string name="pravila_lombarda">Ознакомится с правилами ломбарда</string>
+    <string name="pravila">Правила</string>
+    <string name="benefits">Benefits</string>
+    <string name="required_docs">Требуемые документы для выезной оптравки домой:</string>
+    <string name="ostavit_zayavku">Оставить заявку</string>
+    <string name="selfie">Selfie</string>
+    <string name="primer">Пример по отправки документов</string>
     <string-array name="extension_days">
         <item>1</item>
         <item>2</item>

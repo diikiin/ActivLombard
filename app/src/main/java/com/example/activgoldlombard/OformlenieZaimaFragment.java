@@ -11,26 +11,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.activgoldlombard.databinding.FragmentOthersBinding;
+import com.example.activgoldlombard.databinding.FragmentOformlenieZaimaBinding;
 
-public class OthersFragment extends Fragment {
+public class OformlenieZaimaFragment extends Fragment {
 
-    private FragmentOthersBinding binding;
+    private FragmentOformlenieZaimaBinding binding;
 
-    public OthersFragment() {
+    public OformlenieZaimaFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentOthersBinding.inflate(inflater,container,false);
+        binding = FragmentOformlenieZaimaBinding.inflate(inflater,container,false);
 
-        binding.zaim.setOnClickListener(view -> replaceFragment(new OformlenieZaimaFragment()));
-
-        binding.uslovia.setOnClickListener(view -> replaceFragment(new BenefitsFragment()));
-
-        binding.pravila.setOnClickListener(view -> replaceFragment(new RulesFragment()));
+        binding.zayavkaBtn.setOnClickListener(view -> replaceFragment(new ReqHouseFragment()));
 
         return binding.getRoot();
     }
