@@ -71,6 +71,7 @@
     <string name="ostavit_zayavku">Оставить заявку</string>
     <string name="selfie">Selfie</string>
     <string name="primer">Пример по отправки документов</string>
+    <string name="back">Назад</string>
     <string-array name="extension_days">
         <item>1</item>
         <item>2</item>

@@ -26,6 +26,8 @@ public class OformlenieZaimaFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentOformlenieZaimaBinding.inflate(inflater,container,false);
 
+        binding.backBtn.setOnClickListener(view -> replaceFragment(new OthersFragment()));
+
         binding.zayavkaBtn.setOnClickListener(view -> replaceFragment(new ReqHouseFragment()));
 
         return binding.getRoot();

@@ -11,20 +11,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.activgoldlombard.databinding.FragmentRulesBinding;
+import com.example.activgoldlombard.databinding.FragmentLicenseBinding;
 
-public class RulesFragment extends Fragment {
+public class LicenseFragment extends Fragment {
 
-    private FragmentRulesBinding binding;
+    private FragmentLicenseBinding binding;
 
-    public RulesFragment() {
+    public LicenseFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding=FragmentRulesBinding.inflate(inflater,container,false);
+        binding = FragmentLicenseBinding.inflate(inflater, container, false);
 
         binding.backImg.setOnClickListener(view -> {
             FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
