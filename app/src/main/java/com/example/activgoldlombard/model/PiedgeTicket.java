@@ -7,13 +7,13 @@ public class PiedgeTicket implements Serializable {
 
     public SampleType sampleType;
     public String date;
-    public double amountForHand;
+    public long amountForHand;
     public double credit;
 
     public PiedgeTicket() {
     }
 
-    public PiedgeTicket( SampleType sampleType, String date, double amountForHand, double credit) {
+    public PiedgeTicket( SampleType sampleType, String date, long amountForHand, double credit) {
         this.sampleType = sampleType;
         this.date = date;
         this.amountForHand = amountForHand;
@@ -41,7 +41,7 @@ public class PiedgeTicket implements Serializable {
         return amountForHand;
     }
 
-    public void setAmountForHand(double amountForHand) {
+    public void setAmountForHand(long amountForHand) {
         this.amountForHand = amountForHand;
     }
 

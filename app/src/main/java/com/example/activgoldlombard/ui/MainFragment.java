@@ -17,17 +17,22 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.activgoldlombard.R;
 import com.example.activgoldlombard.databinding.FragmentMyBinding;
 import com.example.activgoldlombard.model.PiedgeTicket;
 import com.example.activgoldlombard.model.SampleType;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +40,7 @@ import java.util.Map;
 
 public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 Button button;
+TextView sum, depSum;
     private FragmentMyBinding binding;
     public MainFragment() {
         // Required empty public constructor
@@ -50,7 +56,9 @@ Button button;
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-//        binding = FragmentMyBinding.inflate(inflater, container, false);
+
+        sum=rootView.findViewById(R.id.summa);
+        depSum = rootView.findViewById(R.id.depSumma);
 
         Spinner sampleSpinner = rootView.findViewById(R.id.ext_sample);
 
@@ -75,33 +83,38 @@ Button button;
         sampleSpinner.setOnItemSelectedListener(this);
 
         button = rootView.findViewById(R.id.saveBtn);
-        Map<String, Integer> map = new HashMap<>();
-        map.put("AU999",23488);
-        map.put("AU750",17434);
-        map.put("AU585",13598);
+        //получаем список проб и цен
+        Map<String, Integer> map = getInitSample();
 
-firebaseDatabase = FirebaseDatabase.getInstance();
-databaseReference =firebaseDatabase.getReference().child("PiedgeTicket");
-button.setOnClickListener(v -> {
-    if(TextUtils.isEmpty(grEdt.toString()))
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference =firebaseDatabase.getReference("PiedgeTicket");
 
-    {
+        button.setOnClickListener(v -> {
+        if(TextUtils.isEmpty(grEdt.toString())&TextUtils.isEmpty(sampleSpinner.getSelectedItem().toString())&TextUtils.isEmpty(daySpinner.getSelectedItem().toString())) {
         // if the text fields are empty
         // then show the below message.
         Toast.makeText(getContext(), "Please add some data.", Toast.LENGTH_SHORT).show();
-    } else
-
-    {
+        } else {
         // else call the method to add
         // data to our database.
-        SampleType sampleType = new SampleType(sampleSpinner.toString(),0.1105,Double.parseDouble(grEdt.getText().toString().trim()), map.get(sampleSpinner.getSelectedItem().toString()));
-        PiedgeTicket a= new PiedgeTicket(sampleType,daySpinner.toString(),sampleType.getPriceForGr()*sampleType.getWeight(),sampleType.getPriceForGr()*sampleType.getWeight()*(1.0+sampleType.getPercent()));
 
-        addDatatoFirebase(a);
+        SampleType sampleType = new SampleType(sampleSpinner.getSelectedItem().toString(),0.1105,Double.parseDouble(grEdt.getText().toString().substring(0,grEdt.getText().toString().trim().length()-2).trim()), map.get(sampleSpinner.getSelectedItem().toString().trim()));
+        PiedgeTicket a= new PiedgeTicket(sampleType,daySpinner.getSelectedItem().toString(),(long)(sampleType.getPriceForGr()*sampleType.getWeight()), (long) (sampleType.getPriceForGr() * sampleType.getWeight() * (1.0 + sampleType.getPercent())));
+
+        sum.setText(String.valueOf(sampleType.getPriceForGr()*sampleType.getWeight()));
+        depSum.setText(String.valueOf((sampleType.getPriceForGr() * sampleType.getWeight() * (1.0 + sampleType.getPercent()))));
+
+        databaseReference.child(String.valueOf(a.hashCode())).setValue(a).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                grEdt.setText("");
+                Toast.makeText(container.getContext(),"Successfuly Inserted",Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
-});
-return rootView;
-//        return binding.getRoot();
+    });
+    return rootView;
     }
 
     //Перейти на другой фрагмент
@@ -127,35 +140,7 @@ return rootView;
         };
         return  itemSelectedListener;
     }
-    private void addDatatoFirebase(PiedgeTicket piedgeTicket) {
-        // below 3 lines of code is used to set
-        // data in our object class.
-//        databaseReference =  FirebaseDatabase.getInstance().getReferenceFromUrl("xxxxxxxxxxxxxxxxxxxxxx");
-//        mMovieRef = mRef.child("Name");
 
-
-        // we are use add value event listener method
-        // which is called with database reference.
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // inside the method of on Data change we are setting
-                // our object class to our database reference.
-                // data base reference will sends data to firebase.
-                databaseReference.setValue(piedgeTicket);
-
-                // after adding this data we are showing toast message.
-                Toast.makeText(getContext(), "data added", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // if the data is not added or it is cancelled then
-                // we are displaying a failure toast message.
-                Toast.makeText(getContext(), "Fail to add data " + error, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -166,5 +151,18 @@ return rootView;
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    public Map<String,Integer>getInitSample(){
+        Map<String, Integer> map = new HashMap<>();
+        map.put("AU999",23488);
+        map.put("AU750",17434);
+        map.put("AU585",13598);
+        map.put("AU333",8088);
+        map.put("AU375",9108);
+        map.put("AU500",12144);
+        map.put("AU875",21253);
+        map.put("AU916",22248);
+        map.put("AU958",23269);
+        return  map;
     }
 }

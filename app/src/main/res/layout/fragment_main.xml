@@ -323,7 +323,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/summa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -372,7 +372,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/depSumma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -401,12 +401,12 @@
 
         <Button
             android:id="@+id/saveBtn"
-            android:layout_width="61dp"
-            android:layout_height="45dp"
+            android:layout_width="57dp"
+            android:layout_height="41dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="19dp"
             android:layout_marginBottom="19dp"
-            android:text="Отправить"
+            android:text="Ок"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/constraintLayout7"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout6"

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.activgoldlombard.databinding.FragmentOformlenieZaimaBinding;
+import com.example.activgoldlombard.ui.reqHouseFragment;
 
 public class OformlenieZaimaFragment extends Fragment {
 
@@ -26,7 +27,7 @@ public class OformlenieZaimaFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentOformlenieZaimaBinding.inflate(inflater,container,false);
 
-        binding.zayavkaBtn.setOnClickListener(view -> replaceFragment(new ReqHouseFragment()));
+        binding.zayavkaBtn.setOnClickListener(view -> replaceFragment(new reqHouseFragment()));
 
         return binding.getRoot();
     }
