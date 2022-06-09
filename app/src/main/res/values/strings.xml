@@ -71,6 +71,18 @@
     <string name="ostavit_zayavku">Оставить заявку</string>
     <string name="selfie">Selfie</string>
     <string name="primer">Пример по отправки документов</string>
+    <string name="kz">KZ</string>
+    <string name="_2000_00">2000.00</string>
+    <string name="_5599_0000_0000_0000">5599 0000 0000 0000</string>
+    <string name="card_number">Номер карты</string>
+    <string name="owner">Держатель</string>
+    <string name="jone_doe">Jone Doe</string>
+    <string name="expiry_date">Действительна до</string>
+    <string name="_09_29">09/29</string>
+    <string name="code">* * *</string>
+    <string name="example_email_com">example@email.com</string>
+    <string name="pay">Оплатить</string>
+    <string name="back">Назад</string>
     <string-array name="extension_days">
         <item>1</item>
         <item>2</item>
