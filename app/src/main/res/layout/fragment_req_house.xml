@@ -45,7 +45,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="35dp"
         android:text="@string/FIO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
@@ -67,7 +67,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fioTxt"
             android:layout_width="300dp"
-            android:layout_height="30dp" />
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -96,7 +97,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phoneTxt"
             android:layout_width="300dp"
-            android:layout_height="30dp" />
+            android:layout_height="wrap_content"
+            android:inputType="phone"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -125,7 +127,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/cityTxt"
             android:layout_width="300dp"
-            android:layout_height="30dp" />
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -154,7 +157,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/addressTxt"
             android:layout_width="300dp"
-            android:layout_height="30dp" />
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -171,7 +175,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/uploadPhotoLayout"
         android:layout_width="300dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
@@ -180,9 +184,9 @@
 
         <TextView
             android:id="@+id/uploadTxt"
-            android:layout_width="250dp"
-            android:layout_height="30dp"
-            android:contextClickable="true"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -191,12 +195,15 @@
             android:id="@+id/uploadImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:contentDescription="@string/upload_photos"
             android:src="@drawable/ic_settings"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/uploadTxt"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/upload_photos" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
