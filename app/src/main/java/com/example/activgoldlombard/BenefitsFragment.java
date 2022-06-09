@@ -24,7 +24,7 @@ public class BenefitsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding=FragmentBenefitsBinding.inflate(inflater,container,false);
+        binding = FragmentBenefitsBinding.inflate(inflater, container, false);
 
         binding.backImg.setOnClickListener(view -> {
             FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
@@ -33,6 +33,6 @@ public class BenefitsFragment extends Fragment {
             fragmentTransaction.commit();
         });
 
-        return inflater.inflate(R.layout.fragment_benefits, container, false);
+        return binding.getRoot();
     }
 }

@@ -81,6 +81,8 @@ public class ReqHouseFragment extends Fragment {
         binding.uploadTxt.setOnClickListener(view -> choosePicture());
         binding.uploadImg.setOnClickListener(view -> choosePicture());
 
+        binding.backBtn.setOnClickListener(view -> replaceFragment(new OformlenieZaimaFragment()));
+
         binding.sendBtn.setOnClickListener(view -> validateData());
 
         return binding.getRoot();
