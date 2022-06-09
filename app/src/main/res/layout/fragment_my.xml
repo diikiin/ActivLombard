@@ -22,13 +22,16 @@
         android:id="@+id/signOut"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="60dp"
         android:clickable="true"
+        android:contentDescription="@string/sign_out"
         android:src="@drawable/ic_baseline_exit_to_app_24"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtDep"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/sign_out" />
+        app:layout_constraintVertical_bias="0.207" />
 
     <View
         android:id="@+id/hor_line"
@@ -42,6 +45,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtDep" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/searchview_bg"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hor_line"
+        app:layout_constraintVertical_bias="0.0"
+        app:queryHint="Search Here ...." />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
@@ -52,6 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hor_line"
+        android:layout_marginTop="50dp"
         tools:listitem="@layout/deposit_bilet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

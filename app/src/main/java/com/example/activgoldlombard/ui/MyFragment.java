@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,7 +20,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
+
+import android.widget.Toast;
 
 import com.example.activgoldlombard.R;
 import com.example.activgoldlombard.model.PiedgeTicket;
@@ -35,11 +37,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyFragment extends Fragment {
 
     private FirebaseAuth auth;
-//    private FragmentMyBinding binding;
+    //    private FragmentMyBinding binding;
     private RecyclerView recyclerView;
     PiedgeAdapter adapter;
     DatabaseReference mbase;
@@ -47,6 +50,7 @@ public class MyFragment extends Fragment {
     DatabaseReference database;
     MyAdapter myAdapter;
     ArrayList<PiedgeTicket> list;
+
     public MyFragment() {
         // Required empty public constructor
     }
@@ -99,16 +103,17 @@ public class MyFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                for (DataSnapshot ds : snapshot.getChildren()){
+                for (DataSnapshot ds : snapshot.getChildren()) {
                     PiedgeTicket piedgeTicket = new PiedgeTicket();
-                    if(ds.child("amountForHand").getValue(Long.class)!=null) {
+                    if (ds.child("amountForHand").getValue(Long.class) != null) {
 //                    PiedgeTicket piedgeTicket = dataSnapshot.getValue(PiedgeTicket.class);
+                        piedgeTicket.setId(ds.getKey());
                         piedgeTicket.setAmountForHand(ds.child("amountForHand").getValue(Long.class));
                         piedgeTicket.setCredit(ds.child("credit").getValue(Double.class));
                         piedgeTicket.setDate(ds.child("date").getValue(String.class));
                         piedgeTicket.setSampleType(ds.child("sampleType").getValue(SampleType.class));
 
-
+                        Log.d(TAG, "showData: id: " + piedgeTicket.getId());
                         Log.d(TAG, "showData: amount: " + piedgeTicket.getAmountForHand());
                         Log.d(TAG, "showData: credit: " + piedgeTicket.getCredit());
                         Log.d(TAG, "showData: date: " + piedgeTicket.getDate());
@@ -127,44 +132,27 @@ public class MyFragment extends Fragment {
 
             }
         });
-        myAdapter = new MyAdapter(container.getContext(),list);
+        myAdapter = new MyAdapter(container.getContext(), list);
         recyclerView.setAdapter(myAdapter);
-        return rootView;
-    }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-
-        inflater.inflate(R.menu.search,menu);
-        MenuItem item=menu.findItem(R.id.search);
-        SearchView searchView=(SearchView)item.getActionView();
+        SearchView searchView = rootView.findViewById(R.id.searchView);
+        searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
             @Override
             public boolean onQueryTextSubmit(String query) {
-                txtSearch(query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                txtSearch(newText);
-                return false;
+                filterlist(newText);
+                return true;
             }
         });
-
+        return rootView;
     }
 
-
-
-    private void txtSearch(String str){
-        FirebaseRecyclerOptions<PiedgeTicket> options
-                = new FirebaseRecyclerOptions.Builder<PiedgeTicket>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("PiedgeTicket").orderByChild("credit").startAt(str).endAt(str + "\uf8ff"), PiedgeTicket.class)
-                .build();
-        adapter = new PiedgeAdapter(options);
-        adapter.startListening();
-        recyclerView.setAdapter(adapter);
-    }
     @SuppressLint("ResourceType")
     private void checkUser() {
         FirebaseUser user = auth.getCurrentUser();
@@ -181,14 +169,18 @@ public class MyFragment extends Fragment {
         fragmentTransaction.commit();
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        adapter.startListening();
-//    }
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        adapter.stopListening();
-//    }
+    private void filterlist(String text) {
+        List<PiedgeTicket> filteredList = new ArrayList<>();
+        for (PiedgeTicket item : list) {
+            if (String.valueOf(item.getId()).contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        if (filteredList.isEmpty()) {
+            Toast.makeText(getContext(), "No data found", Toast.LENGTH_SHORT).show();
+        } else {
+            myAdapter.setFilteredList(filteredList);
+        }
+
+    }
 }

@@ -2,6 +2,8 @@ package com.example.activgoldlombard.ui;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -9,58 +11,74 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.activgoldlombard.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MapFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class MapFragment extends Fragment {
+import java.util.ArrayList;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class MapFragment extends Fragment implements OnMapReadyCallback {
 
+    private GoogleMap mMap;
+
+    // below are the latitude and longitude
+    // of 4 different locations.
+    LatLng sydney = new LatLng(-34, 151);
+    LatLng TamWorth = new LatLng(-31.083332, 150.916672);
+    LatLng NewCastle = new LatLng(-32.916668, 151.750000);
+    LatLng Brisbane = new LatLng(-27.470125, 153.021072);
+
+    // creating array list for adding all our locations.
+    private ArrayList<LatLng> locationArrayList;
     public MapFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MapFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MapFragment newInstance(String param1, String param2) {
-        MapFragment fragment = new MapFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        super.onCreate(savedInstanceState);
+        View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getParentFragmentManager().findFragmentById(R.id.map);
+        assert mapFragment != null;
+        mapFragment.getMapAsync(this);
+
+        // in below line we are initializing our array list.
+        locationArrayList = new ArrayList<>();
+
+        // on below line we are adding our
+        // locations in our array list.
+        locationArrayList.add(sydney);
+        locationArrayList.add(TamWorth);
+        locationArrayList.add(NewCastle);
+        locationArrayList.add(Brisbane);
+        return rootView;
+    }
+
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
+        // inside on map ready method
+        // we will be displaying all our markers.
+        // for adding markers we are running for loop and
+        // inside that we are drawing marker on our map.
+        for (int i = 0; i < locationArrayList.size(); i++) {
+
+            // below line is use to add marker to each location of our array list.
+            mMap.addMarker(new MarkerOptions().position(locationArrayList.get(i)).title("Marker"));
+
+            // below lin is use to zoom our camera on map.
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(18.0f));
+
+            // below line is use to move our camera to the specific location.
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(locationArrayList.get(i)));
+        }
     }
 }

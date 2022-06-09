@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class PiedgeTicket implements Serializable {
-
+    public String id;
     public SampleType sampleType;
     public String date;
     public long amountForHand;
@@ -20,6 +20,13 @@ public class PiedgeTicket implements Serializable {
         this.credit = credit;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public SampleType getSampleType() {
         return sampleType;

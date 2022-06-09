@@ -1,5 +1,7 @@
 package com.example.activgoldlombard.ui;
 
+import static java.lang.Math.round;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,7 +40,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener{
+public class
+
+MainFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 Button button;
 TextView sum, depSum;
     private FragmentMyBinding binding;
@@ -101,17 +105,17 @@ TextView sum, depSum;
         SampleType sampleType = new SampleType(sampleSpinner.getSelectedItem().toString(),0.1105,Double.parseDouble(grEdt.getText().toString().substring(0,grEdt.getText().toString().trim().length()-2).trim()), map.get(sampleSpinner.getSelectedItem().toString().trim()));
         PiedgeTicket a= new PiedgeTicket(sampleType,daySpinner.getSelectedItem().toString(),(long)(sampleType.getPriceForGr()*sampleType.getWeight()), (long) (sampleType.getPriceForGr() * sampleType.getWeight() * (1.0 + sampleType.getPercent())));
 
-        sum.setText(String.valueOf(sampleType.getPriceForGr()*sampleType.getWeight()));
-        depSum.setText(String.valueOf((sampleType.getPriceForGr() * sampleType.getWeight() * (1.0 + sampleType.getPercent()))));
+        sum.setText(String.valueOf(round(sampleType.getPriceForGr()*sampleType.getWeight())));
+        depSum.setText(String.valueOf(round(sampleType.getPriceForGr() * sampleType.getWeight() * (1.0 + sampleType.getPercent()))));
 
-        databaseReference.child(String.valueOf(a.hashCode())).setValue(a).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                grEdt.setText("");
-                Toast.makeText(container.getContext(),"Successfuly Inserted",Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//        databaseReference.child(String.valueOf(a.hashCode())).setValue(a).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                grEdt.setText("");
+//                Toast.makeText(container.getContext(),"Successfuly Inserted",Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
     }
     });
     return rootView;

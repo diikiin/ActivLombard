@@ -1,5 +1,6 @@
 package com.example.activgoldlombard.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.example.activgoldlombard.R;
 import com.example.activgoldlombard.model.PiedgeTicket;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
@@ -25,7 +27,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         this.context = context;
         this.list = list;
     }
-
+    @SuppressLint("NotifyDataSetChanged")
+    public void setFilteredList(List<PiedgeTicket> filteredList){
+        this.list= (ArrayList<PiedgeTicket>) filteredList;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.date.setText(model.getDate().toString());
         holder.percentForPay.setText(String.valueOf(percent));
         holder.txtPay.setText(String.valueOf(percent));
-        holder.id.setText(String.valueOf(model.hashCode()));
+        holder.id.setText(String.valueOf(model.getId()));
 
     }
 
