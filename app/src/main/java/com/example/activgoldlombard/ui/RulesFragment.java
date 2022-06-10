@@ -1,4 +1,4 @@
-package com.example.activgoldlombard;
+package com.example.activgoldlombard.ui;
 
 import android.os.Bundle;
 
@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class PaidFragment extends Fragment {
+import com.example.activgoldlombard.R;
 
-    public PaidFragment() {
+public class RulesFragment extends Fragment {
+
+    public RulesFragment() {
         // Required empty public constructor
     }
 
@@ -18,6 +20,6 @@ public class PaidFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_paid, container, false);
+        return inflater.inflate(R.layout.fragment_rules, container, false);
     }
 }

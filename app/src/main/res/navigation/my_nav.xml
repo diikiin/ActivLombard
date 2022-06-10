@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_myFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_myFragment_to_payFragment"
+            app:destination="@id/payFragment" />
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
@@ -81,11 +84,25 @@
     </fragment>
     <fragment
         android:id="@+id/oformlenieZaimaFragment"
-        android:name="com.example.activgoldlombard.OformlenieZaimaFragment"
+        android:name="com.example.activgoldlombard.ui.OformlenieZaimaFragment"
         android:label="fragment_oformlenie_zaima"
         tools:layout="@layout/fragment_oformlenie_zaima" >
         <action
             android:id="@+id/action_oformlenieZaimaFragment_to_reqHouseFragment"
             app:destination="@id/reqHouseFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/payFragment"
+        android:name="com.example.activgoldlombard.ui.PayFragment"
+        android:label="fragment_pay"
+        tools:layout="@layout/fragment_pay" >
+        <action
+            android:id="@+id/action_payFragment_to_paidFragment"
+            app:destination="@id/paidFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paidFragment"
+        android:name="com.example.activgoldlombard.ui.PaidFragment"
+        android:label="fragment_paid"
+        tools:layout="@layout/fragment_paid" />
 </navigation>

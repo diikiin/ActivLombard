@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PaidFragment">
+    tools:context=".ui.PaidFragment">
 
 
     <ImageView
@@ -52,11 +52,12 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="4dp"
         android:text="Успешно оплачен"
         app:layout_constraintBottom_toBottomOf="@+id/zaimIdTxt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/zaimIdTxt" />
+        app:layout_constraintTop_toTopOf="@+id/zaimIdTxt"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView29"
@@ -152,7 +153,7 @@
             android:textColor="@color/black" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="338dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp">
@@ -296,7 +297,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/txtSum2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="7830"
@@ -310,9 +311,9 @@
         android:layout_height="14dp"
         android:layout_marginEnd="25dp"
         android:src="@drawable/ic_tenge_black"
-        app:layout_constraintBottom_toBottomOf="@+id/textView38"
+        app:layout_constraintBottom_toBottomOf="@+id/txtSum2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView38" />
+        app:layout_constraintTop_toTopOf="@+id/txtSum2" />
 
     <TextView
         android:id="@+id/textView39"
@@ -334,7 +335,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView39" />
 
     <TextView
-        android:id="@+id/textView40"
+        android:id="@+id/txtItogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="7830"
@@ -348,8 +349,8 @@
         android:layout_height="14dp"
         android:layout_marginEnd="25dp"
         android:src="@drawable/ic_tenge_black"
-        app:layout_constraintBottom_toBottomOf="@+id/textView40"
+        app:layout_constraintBottom_toBottomOf="@+id/txtItogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView40" />
+        app:layout_constraintTop_toTopOf="@+id/txtItogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

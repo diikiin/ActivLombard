@@ -44,7 +44,6 @@ public class MyFragment extends Fragment {
     private FirebaseAuth auth;
     //    private FragmentMyBinding binding;
     private RecyclerView recyclerView;
-    PiedgeAdapter adapter;
     DatabaseReference mbase;
 
     DatabaseReference database;
@@ -59,8 +58,6 @@ public class MyFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_my, container, false);
-//        binding = FragmentMyBinding.inflate(inflater, container, false);
-
         auth = FirebaseAuth.getInstance();
 
         checkUser();
@@ -69,26 +66,6 @@ public class MyFragment extends Fragment {
             auth.signOut();
             replaceFragment(new LoginFragment());
         });
-
-//        mbase = FirebaseDatabase.getInstance().getReference().child("PiedgeTicket");
-//
-//        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-//
-//        // To display the Recycler view linearly
-//        recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-//
-//        // It is a class provide by the FirebaseUI to make a
-//        // query in the database to fetch appropriate data
-//        FirebaseRecyclerOptions<PiedgeTicket> options
-//                = new FirebaseRecyclerOptions.Builder<PiedgeTicket>()
-//                .setQuery(mbase, PiedgeTicket.class)
-//                .build();
-//        // Connecting object of required Adapter class to
-//        // the Adapter class itself
-//        adapter = new PiedgeAdapter(options);
-//        // Connecting Adapter class with the Recycler view*/
-//        recyclerView.setAdapter(adapter);
-
 
         recyclerView = rootView.findViewById(R.id.recyclerView);
         database = FirebaseDatabase.getInstance().getReference("PiedgeTicket");
