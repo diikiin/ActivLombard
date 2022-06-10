@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.activgoldlombard.R;
+import com.example.activgoldlombard.databinding.FragmentMapBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
-
+    FragmentMapBinding binding;
     private GoogleMap mMap;
 
     // below are the latitude and longitude
@@ -42,11 +43,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+        binding = FragmentMapBinding.inflate(inflater, container, false);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getParentFragmentManager().findFragmentById(R.id.map);
-        assert mapFragment != null;
+        SupportMapFragment mapFragment =  (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.map);
+//        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
         // in below line we are initializing our array list.
@@ -58,7 +59,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         locationArrayList.add(TamWorth);
         locationArrayList.add(NewCastle);
         locationArrayList.add(Brisbane);
-        return rootView;
+        return binding.getRoot();
     }
 
 

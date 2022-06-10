@@ -164,7 +164,7 @@
             android:background="@drawable/rounded_edittext_2"
             android:ems="20"
             android:hint="@string/_09_29"
-            android:inputType="date"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.11"
