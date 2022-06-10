@@ -1,8 +1,5 @@
 package com.example.activgoldlombard.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 public class SampleType implements Serializable {
@@ -11,24 +8,15 @@ public class SampleType implements Serializable {
     public double weight;
     public double priceForGr;
 
-    public SampleType( String name, double percent, double weight, double priceForGr) {
+    public SampleType() {
+    }
+
+    public SampleType(String name, double percent, double weight, double priceForGr) {
         this.name = name;
         this.percent = percent;
         this.weight = weight;
         this.priceForGr = priceForGr;
     }
-
-    public SampleType() {
-    }
-
-    protected SampleType(Parcel in) {
-        name = in.readString();
-        percent = in.readDouble();
-        weight = in.readDouble();
-        priceForGr = in.readDouble();
-    }
-
-
 
     public double getPriceForGr() {
         return priceForGr;
@@ -37,7 +25,6 @@ public class SampleType implements Serializable {
     public void setPriceForGr(double priceForGr) {
         this.priceForGr = priceForGr;
     }
-
 
     public String getName() {
         return name;
@@ -62,6 +49,5 @@ public class SampleType implements Serializable {
     public void setWeight(double weight) {
         this.weight = weight;
     }
-
 
 }

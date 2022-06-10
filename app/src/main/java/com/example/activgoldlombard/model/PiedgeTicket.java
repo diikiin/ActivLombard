@@ -1,10 +1,6 @@
 package com.example.activgoldlombard.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
-import java.util.Date;
 
 public class PiedgeTicket implements Serializable {
     public String id;
@@ -12,6 +8,7 @@ public class PiedgeTicket implements Serializable {
     public String date;
     public long amountForHand;
     public double credit;
+    public boolean paid;
 
 
     public PiedgeTicket() {
@@ -26,9 +23,7 @@ public class PiedgeTicket implements Serializable {
 
     public PiedgeTicket(String id, String date, double credit) {
         this.id = id;
-
         this.date = date;
-        this.amountForHand = amountForHand;
         this.credit = credit;
     }
 
@@ -72,4 +67,11 @@ public class PiedgeTicket implements Serializable {
         this.credit = credit;
     }
 
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
+    }
 }
