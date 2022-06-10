@@ -15,19 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Toast;
 
 import com.example.activgoldlombard.R;
+import com.example.activgoldlombard.databinding.FragmentMyBinding;
 import com.example.activgoldlombard.model.PiedgeTicket;
 import com.example.activgoldlombard.model.SampleType;
 import com.example.activgoldlombard.ui.auth.LoginFragment;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,13 +35,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MyFragment extends Fragment {
 
     private FirebaseAuth auth;
-    //    private FragmentMyBinding binding;
+    private FragmentMyBinding binding;
     private RecyclerView recyclerView;
-    DatabaseReference mbase;
 
     DatabaseReference database;
     MyAdapter myAdapter;
@@ -57,23 +54,23 @@ public class MyFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_my, container, false);
+        binding = FragmentMyBinding.inflate(inflater, container, false);
         auth = FirebaseAuth.getInstance();
 
         checkUser();
 
-        rootView.findViewById(R.id.signOut).setOnClickListener(view -> {
+        binding.signOut.setOnClickListener(view -> {
             auth.signOut();
             replaceFragment(new LoginFragment());
         });
 
-        recyclerView = rootView.findViewById(R.id.recyclerView);
-        database = FirebaseDatabase.getInstance().getReference("PiedgeTicket");
+        recyclerView = binding.recyclerView;
+        database = FirebaseDatabase.getInstance().getReference("PiedgeTicket")
+                .child(Objects.requireNonNull(auth.getCurrentUser()).getUid());
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         list = new ArrayList<>();
-
 
         database.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -83,7 +80,6 @@ public class MyFragment extends Fragment {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     PiedgeTicket piedgeTicket = new PiedgeTicket();
                     if (ds.child("amountForHand").getValue(Long.class) != null) {
-//                    PiedgeTicket piedgeTicket = dataSnapshot.getValue(PiedgeTicket.class);
                         piedgeTicket.setId(ds.getKey());
                         piedgeTicket.setAmountForHand(ds.child("amountForHand").getValue(Long.class));
                         piedgeTicket.setCredit(ds.child("credit").getValue(Double.class));
@@ -112,7 +108,7 @@ public class MyFragment extends Fragment {
         myAdapter = new MyAdapter(container.getContext(), list);
         recyclerView.setAdapter(myAdapter);
 
-        SearchView searchView = rootView.findViewById(R.id.searchView);
+        SearchView searchView = binding.searchView;
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -127,7 +123,8 @@ public class MyFragment extends Fragment {
                 return true;
             }
         });
-        return rootView;
+
+        return binding.getRoot();
     }
 
     @SuppressLint("ResourceType")

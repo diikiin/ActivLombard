@@ -7,8 +7,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -23,45 +21,32 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.activgoldlombard.R;
-import com.example.activgoldlombard.databinding.FragmentMyBinding;
 import com.example.activgoldlombard.model.PiedgeTicket;
 import com.example.activgoldlombard.model.SampleType;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
 
+public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+    Button button;
+    TextView sum, depSum;
 
-public class
-
-MainFragment extends Fragment implements AdapterView.OnItemSelectedListener{
-Button button;
-TextView sum, depSum;
-    private FragmentMyBinding binding;
     public MainFragment() {
         // Required empty public constructor
     }
-    EditText employeeNameEdt;
-    FirebaseDatabase firebaseDatabase;
 
-    // creating a variable for our Database
-    // Reference for Firebase.
     DatabaseReference databaseReference;
-    String options[]={"AU999","AU750","AU585" };
+
+    String options[] = {"AU999", "AU750", "AU585"};
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        sum=rootView.findViewById(R.id.summa);
+        sum = rootView.findViewById(R.id.summa);
         depSum = rootView.findViewById(R.id.depSumma);
 
         Spinner sampleSpinner = rootView.findViewById(R.id.ext_sample);
@@ -90,51 +75,36 @@ TextView sum, depSum;
         //получаем список проб и цен
         Map<String, Integer> map = getInitSample();
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference =firebaseDatabase.getReference("PiedgeTicket");
+        databaseReference = FirebaseDatabase.getInstance().getReference("PiedgeTicket");
 
         button.setOnClickListener(v -> {
-        if(TextUtils.isEmpty(grEdt.toString())&TextUtils.isEmpty(sampleSpinner.getSelectedItem().toString())&TextUtils.isEmpty(daySpinner.getSelectedItem().toString())) {
-        // if the text fields are empty
-        // then show the below message.
-        Toast.makeText(getContext(), "Please add some data.", Toast.LENGTH_SHORT).show();
-        } else {
-        // else call the method to add
-        // data to our database.
+            if (TextUtils.isEmpty(grEdt.toString()) & TextUtils.isEmpty(sampleSpinner.getSelectedItem().toString())
+                    & TextUtils.isEmpty(daySpinner.getSelectedItem().toString())) {
+                Toast.makeText(getContext(), "Please add some data.", Toast.LENGTH_SHORT).show();
+            } else {
+                SampleType sampleType = new SampleType(sampleSpinner.getSelectedItem().toString(),
+                        0.1105, Double.parseDouble(grEdt.getText().toString()
+                        .substring(0, grEdt.getText().toString().trim().length() - 2).trim()),
+                        map.get(sampleSpinner.getSelectedItem().toString().trim()));
+                PiedgeTicket a = new PiedgeTicket(sampleType, daySpinner.getSelectedItem().toString(),
+                        (long) (sampleType.getPriceForGr() * sampleType.getWeight()),
+                        (long) (sampleType.getPriceForGr() * sampleType.getWeight() * (1.0 + sampleType.getPercent())));
 
-        SampleType sampleType = new SampleType(sampleSpinner.getSelectedItem().toString(),0.1105,Double.parseDouble(grEdt.getText().toString().substring(0,grEdt.getText().toString().trim().length()-2).trim()), map.get(sampleSpinner.getSelectedItem().toString().trim()));
-        PiedgeTicket a= new PiedgeTicket(sampleType,daySpinner.getSelectedItem().toString(),(long)(sampleType.getPriceForGr()*sampleType.getWeight()), (long) (sampleType.getPriceForGr() * sampleType.getWeight() * (1.0 + sampleType.getPercent())));
+                sum.setText(String.valueOf(round(sampleType.getPriceForGr() * sampleType.getWeight())));
+                depSum.setText(String.valueOf(round(sampleType.getPriceForGr() * sampleType.getWeight() * (1.0 + sampleType.getPercent()))));
 
-        sum.setText(String.valueOf(round(sampleType.getPriceForGr()*sampleType.getWeight())));
-        depSum.setText(String.valueOf(round(sampleType.getPriceForGr() * sampleType.getWeight() * (1.0 + sampleType.getPercent()))));
-
-//        databaseReference.child(String.valueOf(a.hashCode())).setValue(a).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                grEdt.setText("");
-//                Toast.makeText(container.getContext(),"Successfuly Inserted",Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
-    }
-    });
-    return rootView;
+            }
+        });
+        return rootView;
     }
 
-    //Перейти на другой фрагмент
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainerView, fragment);
-        fragmentTransaction.commit();
-    }
-    public AdapterView.OnItemSelectedListener getItem(){
+    public AdapterView.OnItemSelectedListener getItem() {
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 // Получаем выбранный объект
-                String item = (String)parent.getItemAtPosition(position);
+                String item = (String) parent.getItemAtPosition(position);
                 Toast.makeText(parent.getContext(), item, Toast.LENGTH_SHORT).show();
             }
 
@@ -142,31 +112,31 @@ TextView sum, depSum;
             public void onNothingSelected(AdapterView<?> parent) {
             }
         };
-        return  itemSelectedListener;
+        return itemSelectedListener;
     }
 
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String item = (String)parent.getItemAtPosition(position);
-        Toast.makeText(parent.getContext(), item, Toast.LENGTH_SHORT).show();
+        String item = (String) parent.getItemAtPosition(position);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-    public Map<String,Integer>getInitSample(){
+
+    public Map<String, Integer> getInitSample() {
         Map<String, Integer> map = new HashMap<>();
-        map.put("AU999",23488);
-        map.put("AU750",17434);
-        map.put("AU585",13598);
-        map.put("AU333",8088);
-        map.put("AU375",9108);
-        map.put("AU500",12144);
-        map.put("AU875",21253);
-        map.put("AU916",22248);
-        map.put("AU958",23269);
-        return  map;
+        map.put("AU999", 23243);
+        map.put("AU750", 17734);
+        map.put("AU585", 13598);
+        map.put("AU333", 7740);
+        map.put("AU375", 8717);
+        map.put("AU500", 11622);
+        map.put("AU875", 20349);
+        map.put("AU916", 21293);
+        map.put("AU958", 22269);
+        return map;
     }
 }
