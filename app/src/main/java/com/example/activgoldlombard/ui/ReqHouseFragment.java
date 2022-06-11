@@ -1,4 +1,4 @@
-package com.example.activgoldlombard;
+package com.example.activgoldlombard.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,7 +20,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.activgoldlombard.R;
 import com.example.activgoldlombard.databinding.FragmentReqHouseBinding;
+import com.example.activgoldlombard.model.ReqHouse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

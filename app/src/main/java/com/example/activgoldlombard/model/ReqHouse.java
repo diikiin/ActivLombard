@@ -1,4 +1,4 @@
-package com.example.activgoldlombard;
+package com.example.activgoldlombard.model;
 
 public class ReqHouse {
     public String fio;

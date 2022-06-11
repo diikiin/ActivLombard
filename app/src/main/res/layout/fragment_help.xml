@@ -13,7 +13,8 @@
         android:src="@drawable/diamond"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/help" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -24,7 +25,8 @@
         android:src="@drawable/form"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        android:contentDescription="@string/help" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -32,8 +34,10 @@
         android:layout_height="250dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
+        android:layout_marginBottom="30dp"
         android:src="@drawable/license"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/help" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.activgoldlombard;
+package com.example.activgoldlombard.ui;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.activgoldlombard.R;
 import com.example.activgoldlombard.databinding.FragmentLicenseBinding;
 
 public class LicenseFragment extends Fragment {
@@ -29,7 +30,7 @@ public class LicenseFragment extends Fragment {
         binding.backImg.setOnClickListener(view -> {
             FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragmentContainerView, new OthersFragment());
+            fragmentTransaction.replace(R.id.fragmentContainerView, new HelpFragment());
             fragmentTransaction.commit();
         });
 

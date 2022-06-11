@@ -22,7 +22,6 @@ import java.util.Objects;
 
 public class PaidFragment extends Fragment {
     FragmentPaidBinding binding;
-    TextView txtId, txtDate, txtSum, txtPay, txtItogo, txtSum2;
 
     public PaidFragment() {
         // Required empty public constructor
@@ -52,11 +51,4 @@ public class PaidFragment extends Fragment {
         return binding.getRoot();
     }
 
-    //Перейти на другой фрагмент
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainerView, fragment);
-        fragmentTransaction.commit();
-    }
 }

@@ -37,7 +37,8 @@
         android:layout_marginStart="18dp"
         android:src="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView5"/>
+        app:layout_constraintTop_toBottomOf="@id/imageView5"
+        android:contentDescription="@string/back" />
 
     <ImageView
         android:id="@+id/imageView12"

@@ -71,7 +71,6 @@ public class PayFragment extends Fragment {
                 return;
             }
 
-
             FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             PaidFragment paidFragment = new PaidFragment();

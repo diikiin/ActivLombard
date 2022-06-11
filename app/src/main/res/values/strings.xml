@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Activ Gold Lombard</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_txt">Главная</string>
     <string name="help_txt">Помощь</string>
     <string name="map_txt">Карта</string>
@@ -48,7 +46,7 @@
     <string name="_0_tg">0 тг</string>
     <string name="moi_zaimy">Мои Займы</string>
     <string name="zalogovyi_bilet">Залоговый билет №</string>
-    <string name="garant_srok">Гарантированный срок ожидания:</string>
+    <string name="garant_srok">Гарантированный срок:</string>
     <string name="ostatok_summy">Остаток суммы займа:</string>
     <string name="tenge">Tenge</string>
     <string name="procenty">Проценты к оплате:</string>
@@ -71,6 +69,17 @@
     <string name="ostavit_zayavku">Оставить заявку</string>
     <string name="selfie">Selfie</string>
     <string name="primer">Пример по отправки документов</string>
+    <string name="kz">KZ</string>
+    <string name="_2000_00">2000.00</string>
+    <string name="_5599_0000_0000_0000">5599 0000 0000 0000</string>
+    <string name="card_number">Номер карты</string>
+    <string name="owner">Держатель</string>
+    <string name="jone_doe">Jone Doe</string>
+    <string name="expiry_date">Действительна до</string>
+    <string name="_09_29">09/29</string>
+    <string name="code">* * *</string>
+    <string name="example_email_com">example@email.com</string>
+    <string name="pay">Оплатить</string>
     <string name="back">Назад</string>
     <string-array name="extension_days">
         <item>1</item>
@@ -97,4 +106,22 @@
         <item>AU333</item>
         <item>AU---</item>
     </string-array>
+    <string name="google_maps_key">AIzaSyA9Y6utdsAlyge4RG6aSoo5H46Lil_B-aU</string>
+    <string name="ok">Ок</string>
+    <string name="help">Help</string>
+    <string name="license">License</string>
+    <string name="paid">Paid</string>
+    <string name="spasibo">Спасибо!</string>
+    <string name="vash_zaim">Ваш займ</string>
+    <string name="oplachen">Успешно оплачен</string>
+    <string name="dannye_lombarda">Данные ломбарда</string>
+    <string name="bin">BIN 191240026634</string>
+    <string name="phone">87087443777</string>
+    <string name="office">Офис г. Нурсултан</string>
+    <string name="dannye_po_oplate">Данные по оплате</string>
+    <string name="sum">Сумма</string>
+    <string name="commission">Комиссия</string>
+    <string name="total">Итого</string>
+    <string name="_7830">7830</string>
+    <string name="_0_00">0.00</string>
 </resources>

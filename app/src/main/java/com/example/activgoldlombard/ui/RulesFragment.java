@@ -1,4 +1,4 @@
-package com.example.activgoldlombard;
+package com.example.activgoldlombard.ui;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.activgoldlombard.R;
 import com.example.activgoldlombard.databinding.FragmentRulesBinding;
 
 public class RulesFragment extends Fragment {
@@ -24,7 +25,7 @@ public class RulesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding=FragmentRulesBinding.inflate(inflater,container,false);
+        binding = FragmentRulesBinding.inflate(inflater, container, false);
 
         binding.backImg.setOnClickListener(view -> {
             FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
