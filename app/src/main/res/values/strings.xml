@@ -107,5 +107,5 @@
         <item>AU375</item>
         <item>AU333</item>
     </string-array>
-    <string name="google_maps_key">AIzaSyA9Y6utdsAlyge4RG6aSoo5H46Lil_B-aU</string>
+<!--    <string name="google_maps_key">AIzaSyA9Y6utdsAlyge4RG6aSoo5H46Lil_B-aU</string>-->
 </resources>
