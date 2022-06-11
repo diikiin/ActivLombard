@@ -1,4 +1,4 @@
-package com.example.activgoldlombard;
+package com.example.activgoldlombard.ui.auth;
 
 import android.os.Bundle;
 
@@ -13,13 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.activgoldlombard.R;
 import com.example.activgoldlombard.databinding.FragmentLoginBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.example.activgoldlombard.ui.MyFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 
 import java.util.Objects;
 

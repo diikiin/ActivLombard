@@ -1,4 +1,4 @@
-package com.example.activgoldlombard;
+package com.example.activgoldlombard.ui.auth;
 
 import android.os.Bundle;
 
@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.activgoldlombard.R;
 import com.example.activgoldlombard.databinding.FragmentForgotPasswordBinding;
 import com.google.firebase.auth.FirebaseAuth;
 

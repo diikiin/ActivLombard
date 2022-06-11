@@ -1,16 +1,16 @@
-package com.example.activgoldlombard;
+package com.example.activgoldlombard.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import com.example.activgoldlombard.R;
 import com.example.activgoldlombard.databinding.ActivityMainBinding;
+import com.example.activgoldlombard.ui.auth.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;

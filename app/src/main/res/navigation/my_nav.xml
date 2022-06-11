@@ -7,31 +7,34 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.activgoldlombard.MainFragment"
+        android:name="com.example.activgoldlombard.ui.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/myFragment"
-        android:name="com.example.activgoldlombard.MyFragment"
+        android:name="com.example.activgoldlombard.ui.MyFragment"
         android:label="fragment_my"
         tools:layout="@layout/fragment_my">
         <action
             android:id="@+id/action_myFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_myFragment_to_payFragment"
+            app:destination="@id/payFragment" />
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
-        android:name="com.example.activgoldlombard.HelpFragment"
+        android:name="com.example.activgoldlombard.ui.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.activgoldlombard.MapFragment"
+        android:name="com.example.activgoldlombard.ui.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/othersFragment"
-        android:name="com.example.activgoldlombard.OthersFragment"
+        android:name="com.example.activgoldlombard.ui.OthersFragment"
         android:label="fragment_others"
         tools:layout="@layout/fragment_others">
         <action
@@ -40,12 +43,12 @@
     </fragment>
     <fragment
         android:id="@+id/reqHouseFragment"
-        android:name="com.example.activgoldlombard.ReqHouseFragment"
+        android:name="com.example.activgoldlombard.ui.reqHouseFragment"
         android:label="fragment_req_house"
         tools:layout="@layout/fragment_req_house" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.activgoldlombard.LoginFragment"
+        android:name="com.example.activgoldlombard.ui.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -60,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.activgoldlombard.RegisterFragment"
+        android:name="com.example.activgoldlombard.ui.auth.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action
@@ -69,7 +72,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.example.activgoldlombard.ForgotPasswordFragment"
+        android:name="com.example.activgoldlombard.ui.auth.ForgotPasswordFragment"
         android:label="fragment_forgot_password"
         tools:layout="@layout/fragment_forgot_password" >
         <action
@@ -81,11 +84,25 @@
     </fragment>
     <fragment
         android:id="@+id/oformlenieZaimaFragment"
-        android:name="com.example.activgoldlombard.OformlenieZaimaFragment"
+        android:name="com.example.activgoldlombard.ui.OformlenieZaimaFragment"
         android:label="fragment_oformlenie_zaima"
         tools:layout="@layout/fragment_oformlenie_zaima" >
         <action
             android:id="@+id/action_oformlenieZaimaFragment_to_reqHouseFragment"
             app:destination="@id/reqHouseFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/payFragment"
+        android:name="com.example.activgoldlombard.ui.PayFragment"
+        android:label="fragment_pay"
+        tools:layout="@layout/fragment_pay" >
+        <action
+            android:id="@+id/action_payFragment_to_paidFragment"
+            app:destination="@id/paidFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paidFragment"
+        android:name="com.example.activgoldlombard.ui.PaidFragment"
+        android:label="fragment_paid"
+        tools:layout="@layout/fragment_paid" />
 </navigation>
