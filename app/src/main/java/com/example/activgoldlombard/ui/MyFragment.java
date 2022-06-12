@@ -57,82 +57,67 @@ public class MyFragment extends Fragment {
         binding = FragmentMyBinding.inflate(inflater, container, false);
         auth = FirebaseAuth.getInstance();
 
-        checkUser();
+        if (checkUser()){
+            recyclerView = binding.recyclerView;
+            database = FirebaseDatabase.getInstance().getReference("PiedgeTicket")
+                    .child(Objects.requireNonNull(auth.getCurrentUser()).getUid());
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+            list = new ArrayList<>();
+
+            database.addValueEventListener(new ValueEventListener() {
+                @SuppressLint("NotifyDataSetChanged")
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        PiedgeTicket piedgeTicket = new PiedgeTicket();
+                        if (ds.child("amountForHand").getValue(Long.class) != null) {
+                            piedgeTicket.setId(ds.getKey());
+                            piedgeTicket.setAmountForHand(ds.child("amountForHand").getValue(Long.class));
+                            piedgeTicket.setCredit(ds.child("credit").getValue(Double.class));
+                            piedgeTicket.setDate(ds.child("date").getValue(String.class));
+                            piedgeTicket.setSampleType(ds.child("sampleType").getValue(SampleType.class));
+
+                            Log.d(TAG, "showData: id: " + piedgeTicket.getId());
+                            Log.d(TAG, "showData: amount: " + piedgeTicket.getAmountForHand());
+                            Log.d(TAG, "showData: credit: " + piedgeTicket.getCredit());
+                            Log.d(TAG, "showData: date: " + piedgeTicket.getDate());
+                            Log.d(TAG, "showData: sample: " + piedgeTicket.getSampleType());
+
+                            list.add(piedgeTicket);
+                        }
+                    }
+                    myAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+            myAdapter = new MyAdapter(container.getContext(), list);
+            recyclerView.setAdapter(myAdapter);
+        }
+        else {
+            replaceFragment(new LoginFragment());
+        }
 
         binding.signOut.setOnClickListener(view -> {
             auth.signOut();
             replaceFragment(new LoginFragment());
         });
 
-        recyclerView = binding.recyclerView;
-        database = FirebaseDatabase.getInstance().getReference("PiedgeTicket")
-                .child(Objects.requireNonNull(auth.getCurrentUser()).getUid());
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        list = new ArrayList<>();
-
-        database.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    PiedgeTicket piedgeTicket = new PiedgeTicket();
-                    if (ds.child("amountForHand").getValue(Long.class) != null) {
-                        piedgeTicket.setId(ds.getKey());
-                        piedgeTicket.setAmountForHand(ds.child("amountForHand").getValue(Long.class));
-                        piedgeTicket.setCredit(ds.child("credit").getValue(Double.class));
-                        piedgeTicket.setDate(ds.child("date").getValue(String.class));
-                        piedgeTicket.setSampleType(ds.child("sampleType").getValue(SampleType.class));
-
-                        Log.d(TAG, "showData: id: " + piedgeTicket.getId());
-                        Log.d(TAG, "showData: amount: " + piedgeTicket.getAmountForHand());
-                        Log.d(TAG, "showData: credit: " + piedgeTicket.getCredit());
-                        Log.d(TAG, "showData: date: " + piedgeTicket.getDate());
-                        Log.d(TAG, "showData: sample: " + piedgeTicket.getSampleType());
-
-                        list.add(piedgeTicket);
-
-                    }
-                }
-                myAdapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        myAdapter = new MyAdapter(container.getContext(), list);
-        recyclerView.setAdapter(myAdapter);
-
-        SearchView searchView = binding.searchView;
-        searchView.clearFocus();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                filterlist(newText);
-                return true;
-            }
-        });
+        search();
 
         return binding.getRoot();
     }
 
     @SuppressLint("ResourceType")
-    private void checkUser() {
+    private boolean checkUser() {
         FirebaseUser user = auth.getCurrentUser();
-        if (user == null) {
-            replaceFragment(new LoginFragment());
-        }
+        return user != null;
     }
 
     //Перейти на другой фрагмент
@@ -143,7 +128,24 @@ public class MyFragment extends Fragment {
         fragmentTransaction.commit();
     }
 
-    private void filterlist(String text) {
+    private void search(){
+        binding.searchView.clearFocus();
+        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
+    }
+
+    private void filterList(String text) {
         List<PiedgeTicket> filteredList = new ArrayList<>();
         for (PiedgeTicket item : list) {
             if (String.valueOf(item.getId()).contains(text.toLowerCase())) {
